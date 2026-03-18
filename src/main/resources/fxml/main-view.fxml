@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.financetracker.controller.MainController">
+
+    <top>
+        <HBox styleClass="top-bar" spacing="10">
+            <padding>
+                <Insets top="16" right="20" bottom="16" left="20"/>
+            </padding>
+            <Label fx:id="titleLabel" styleClass="page-title"/>
+        </HBox>
+    </top>
+
+    <center>
+        <VBox spacing="16" styleClass="content-area">
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+
+            <Label text="Welcome to Java Finance Tracker" styleClass="section-title"/>
+            <Label text="This is the base UI setup. Transactions, charts, and database features will be added next." styleClass="body-text"/>
+        </VBox>
+    </center>
+
+</BorderPane>
