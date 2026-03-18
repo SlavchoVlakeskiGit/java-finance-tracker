@@ -25,7 +25,28 @@
     -fx-text-fill: #111827;
 }
 
-.body-text {
-    -fx-font-size: 14px;
-    -fx-text-fill: #4b5563;
+.table-view {
+    -fx-background-color: white;
+    -fx-border-color: #e5e7eb;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #eef2f7;
+}
+
+.table-view .column-header,
+.table-view .filler {
+    -fx-size: 42px;
+    -fx-border-color: transparent transparent #dbe3ec transparent;
+}
+
+.table-view .table-cell {
+    -fx-padding: 10 12 10 12;
+    -fx-text-fill: #374151;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #dbeafe;
 }

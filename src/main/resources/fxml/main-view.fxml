@@ -2,6 +2,8 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
@@ -24,8 +26,17 @@
                 <Insets top="20" right="20" bottom="20" left="20"/>
             </padding>
 
-            <Label text="Welcome to Java Finance Tracker" styleClass="section-title"/>
-            <Label text="This is the base UI setup. Transactions, charts, and database features will be added next." styleClass="body-text"/>
+            <Label text="Recent Transactions" styleClass="section-title"/>
+
+            <TableView fx:id="transactionTable" prefHeight="520">
+                <columns>
+                    <TableColumn fx:id="typeColumn" text="Type" prefWidth="120"/>
+                    <TableColumn fx:id="categoryColumn" text="Category" prefWidth="160"/>
+                    <TableColumn fx:id="amountColumn" text="Amount" prefWidth="120"/>
+                    <TableColumn fx:id="dateColumn" text="Date" prefWidth="140"/>
+                    <TableColumn fx:id="descriptionColumn" text="Description" prefWidth="500"/>
+                </columns>
+            </TableView>
         </VBox>
     </center>
 
