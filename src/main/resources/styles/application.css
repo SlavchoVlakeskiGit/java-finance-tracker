@@ -25,14 +25,23 @@
     -fx-text-fill: #111827;
 }
 
-.summary-card {
+.summary-card,
+.form-card,
+.chart-card {
     -fx-background-color: white;
     -fx-padding: 16;
     -fx-spacing: 6;
     -fx-background-radius: 10;
     -fx-border-radius: 10;
     -fx-border-color: #e5e7eb;
+}
+
+.summary-card {
     -fx-pref-width: 220;
+}
+
+.chart-card {
+    -fx-pref-width: 480;
 }
 
 .summary-title {
@@ -52,14 +61,6 @@
 
 .expense-value {
     -fx-text-fill: #b91c1c;
-}
-
-.form-card {
-    -fx-background-color: white;
-    -fx-padding: 16;
-    -fx-background-radius: 10;
-    -fx-border-radius: 10;
-    -fx-border-color: #e5e7eb;
 }
 
 .text-field,

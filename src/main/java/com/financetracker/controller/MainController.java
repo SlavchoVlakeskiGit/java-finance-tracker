@@ -5,9 +5,14 @@ import com.financetracker.service.DatabaseService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.chart.BarChart;
+import javafx.scene.chart.PieChart;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class MainController {
 
@@ -40,6 +45,12 @@ public class MainController {
 
     @FXML
     private TextField descriptionField;
+
+    @FXML
+    private PieChart expensePieChart;
+
+    @FXML
+    private BarChart<String, Number> summaryBarChart;
 
     @FXML
     private TableView<Transaction> transactionTable;
@@ -143,6 +154,7 @@ public class MainController {
         transactions.setAll(results);
         transactionTable.setItems(transactions);
         updateSummary();
+        updateCharts();
     }
 
     private void updateSummary() {
@@ -162,6 +174,35 @@ public class MainController {
         balanceLabel.setText(String.format("€ %.2f", balance));
         incomeLabel.setText(String.format("€ %.2f", income));
         expenseLabel.setText(String.format("€ %.2f", expense));
+    }
+
+    private void updateCharts() {
+        Map<String, Double> expenseByCategory = new HashMap<>();
+        double income = 0;
+        double expense = 0;
+
+        for (Transaction transaction : transactions) {
+            if ("Expense".equalsIgnoreCase(transaction.getType())) {
+                expense += transaction.getAmount();
+                expenseByCategory.merge(transaction.getCategory(), transaction.getAmount(), Double::sum);
+            } else {
+                income += transaction.getAmount();
+            }
+        }
+
+        ObservableList<PieChart.Data> pieData = FXCollections.observableArrayList();
+        for (Map.Entry<String, Double> entry : expenseByCategory.entrySet()) {
+            pieData.add(new PieChart.Data(entry.getKey(), entry.getValue()));
+        }
+        expensePieChart.setData(pieData);
+
+        summaryBarChart.getData().clear();
+        XYChart.Series<String, Number> series = new XYChart.Series<>();
+        series.setName("Overview");
+        series.getData().add(new XYChart.Data<>("Income", income));
+        series.getData().add(new XYChart.Data<>("Expense", expense));
+        summaryBarChart.getData().add(series);
+        summaryBarChart.setLegendVisible(false);
     }
 
     private void clearForm() {

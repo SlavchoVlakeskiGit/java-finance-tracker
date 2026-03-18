@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
@@ -49,6 +53,25 @@
                 </VBox>
             </HBox>
 
+            <HBox spacing="16">
+                <VBox styleClass="chart-card" spacing="10">
+                    <Label text="Expense Breakdown by Category" styleClass="section-title"/>
+                    <PieChart fx:id="expensePieChart" prefWidth="420" prefHeight="260"/>
+                </VBox>
+
+                <VBox styleClass="chart-card" spacing="10">
+                    <Label text="Income vs Expense" styleClass="section-title"/>
+                    <BarChart fx:id="summaryBarChart" prefWidth="520" prefHeight="260">
+                        <xAxis>
+                            <CategoryAxis/>
+                        </xAxis>
+                        <yAxis>
+                            <NumberAxis/>
+                        </yAxis>
+                    </BarChart>
+                </VBox>
+            </HBox>
+
             <VBox spacing="12" styleClass="form-card">
                 <Label text="Add Transaction" styleClass="section-title"/>
 
@@ -71,7 +94,7 @@
 
             <Label text="Recent Transactions" styleClass="section-title"/>
 
-            <TableView fx:id="transactionTable" prefHeight="460">
+            <TableView fx:id="transactionTable" prefHeight="420">
                 <columns>
                     <TableColumn fx:id="typeColumn" text="Type" prefWidth="120"/>
                     <TableColumn fx:id="categoryColumn" text="Category" prefWidth="160"/>
