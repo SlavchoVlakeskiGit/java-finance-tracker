@@ -80,7 +80,7 @@ The application uses a local SQLite database to store transactions.
    - total income
    - total expenses
    - balance
-5. Charts update automatically based on the current transaction list
+5. Charts update automatically
 6. Users can add, filter, delete, and export transactions
 
 ---
