@@ -1,0 +1,6 @@
+id,type,category,amount,date,description
+5,"Income","Freelance",320.00,"2026-03-10","Small freelance task"
+4,"Expense","Transport",60.00,"2026-03-06","Fuel and parking"
+3,"Expense","Groceries",145.50,"2026-03-05","Weekly groceries"
+2,"Expense","Rent",850.00,"2026-03-03","Apartment rent"
+1,"Income","Salary",2400.00,"2026-03-01","Monthly salary"

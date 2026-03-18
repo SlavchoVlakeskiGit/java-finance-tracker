@@ -81,6 +81,30 @@
     -fx-background-color: #1d4ed8;
 }
 
+.secondary-button {
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #1f2937;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+    -fx-border-color: #d1d5db;
+    -fx-padding: 10 18 10 18;
+}
+
+.danger-button {
+    -fx-background-color: #dc2626;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8;
+    -fx-padding: 10 18 10 18;
+}
+
+.filter-label {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #374151;
+}
+
 .table-view {
     -fx-background-color: white;
     -fx-border-color: #e5e7eb;

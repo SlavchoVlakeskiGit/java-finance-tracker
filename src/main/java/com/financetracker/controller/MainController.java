@@ -7,6 +7,8 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
+import java.util.List;
+
 public class MainController {
 
     @FXML
@@ -23,6 +25,9 @@ public class MainController {
 
     @FXML
     private ComboBox<String> typeComboBox;
+
+    @FXML
+    private ComboBox<String> filterComboBox;
 
     @FXML
     private TextField categoryField;
@@ -67,6 +72,10 @@ public class MainController {
         typeComboBox.setItems(FXCollections.observableArrayList("Income", "Expense"));
         typeComboBox.setValue("Expense");
 
+        filterComboBox.setItems(FXCollections.observableArrayList("All", "Income", "Expense"));
+        filterComboBox.setValue("All");
+        filterComboBox.setOnAction(event -> refreshTransactions());
+
         typeColumn.setCellValueFactory(cellData -> cellData.getValue().typeProperty());
         categoryColumn.setCellValueFactory(cellData -> cellData.getValue().categoryProperty());
         amountColumn.setCellValueFactory(cellData -> cellData.getValue().amountProperty());
@@ -102,8 +111,36 @@ public class MainController {
         refreshTransactions();
     }
 
+    @FXML
+    private void handleDeleteTransaction() {
+        Transaction selectedTransaction = transactionTable.getSelectionModel().getSelectedItem();
+
+        if (selectedTransaction == null) {
+            showAlert("Selection Required", "Please select a transaction to delete.");
+            return;
+        }
+
+        databaseService.deleteTransaction(selectedTransaction.getId());
+        refreshTransactions();
+    }
+
+    @FXML
+    private void handleExportCsv() {
+        databaseService.exportTransactionsToCsv(transactions, "data/transactions_export.csv");
+        showInfo("Export Complete", "Transactions exported to data/transactions_export.csv");
+    }
+
     private void refreshTransactions() {
-        transactions.setAll(databaseService.getAllTransactions());
+        String filter = filterComboBox.getValue();
+        List<Transaction> results;
+
+        if (filter == null || "All".equalsIgnoreCase(filter)) {
+            results = databaseService.getAllTransactions();
+        } else {
+            results = databaseService.getTransactionsByType(filter);
+        }
+
+        transactions.setAll(results);
         transactionTable.setItems(transactions);
         updateSummary();
     }
@@ -137,6 +174,14 @@ public class MainController {
 
     private void showAlert(String title, String message) {
         Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
+
+    private void showInfo(String title, String message) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle(title);
         alert.setHeaderText(null);
         alert.setContentText(message);

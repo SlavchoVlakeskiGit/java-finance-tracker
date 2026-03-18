@@ -62,6 +62,13 @@
                 </GridPane>
             </VBox>
 
+            <HBox spacing="12" alignment="CENTER_LEFT">
+                <Label text="Filter:" styleClass="filter-label"/>
+                <ComboBox fx:id="filterComboBox" prefWidth="140"/>
+                <Button text="Delete Selected" onAction="#handleDeleteTransaction" styleClass="danger-button"/>
+                <Button text="Export CSV" onAction="#handleExportCsv" styleClass="secondary-button"/>
+            </HBox>
+
             <Label text="Recent Transactions" styleClass="section-title"/>
 
             <TableView fx:id="transactionTable" prefHeight="460">
