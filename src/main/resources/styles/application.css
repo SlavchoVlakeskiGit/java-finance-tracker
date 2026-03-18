@@ -25,6 +25,62 @@
     -fx-text-fill: #111827;
 }
 
+.summary-card {
+    -fx-background-color: white;
+    -fx-padding: 16;
+    -fx-spacing: 6;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-border-color: #e5e7eb;
+    -fx-pref-width: 220;
+}
+
+.summary-title {
+    -fx-font-size: 13px;
+    -fx-text-fill: #6b7280;
+}
+
+.summary-value {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #111827;
+}
+
+.income-value {
+    -fx-text-fill: #047857;
+}
+
+.expense-value {
+    -fx-text-fill: #b91c1c;
+}
+
+.form-card {
+    -fx-background-color: white;
+    -fx-padding: 16;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-border-color: #e5e7eb;
+}
+
+.text-field,
+.combo-box {
+    -fx-pref-height: 38;
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+}
+
+.primary-button {
+    -fx-background-color: #2563eb;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8;
+    -fx-padding: 10 18 10 18;
+}
+
+.primary-button:hover {
+    -fx-background-color: #1d4ed8;
+}
+
 .table-view {
     -fx-background-color: white;
     -fx-border-color: #e5e7eb;

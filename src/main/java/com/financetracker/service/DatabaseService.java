@@ -54,6 +54,25 @@ public class DatabaseService {
         return transactions;
     }
 
+    public void insertTransaction(String type, String category, double amount, String date, String description) {
+        String sql = """
+                INSERT INTO transactions (type, category, amount, date, description)
+                VALUES (?, ?, ?, ?, ?)
+                """;
+
+        try (Connection connection = DriverManager.getConnection(DB_URL);
+             PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+            preparedStatement.setString(1, type);
+            preparedStatement.setString(2, category);
+            preparedStatement.setDouble(3, amount);
+            preparedStatement.setString(4, date);
+            preparedStatement.setString(5, description);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
     public void insertSampleTransactionsIfEmpty() {
         String countSql = "SELECT COUNT(*) FROM transactions";
         String insertSql = """
