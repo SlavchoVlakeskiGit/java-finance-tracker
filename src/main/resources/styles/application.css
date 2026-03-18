@@ -131,3 +131,23 @@
 .table-row-cell:selected {
     -fx-background-color: #dbeafe;
 }
+
+.chart {
+    -fx-background-color: white;
+    -fx-background-radius: 8;
+}
+
+.chart-plot-background {
+    -fx-background-color: #ffffff;
+}
+
+.axis-label {
+    -fx-text-fill: #4b5563;
+    -fx-font-size: 12px;
+}
+
+.chart-title {
+    -fx-text-fill: #111827;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
