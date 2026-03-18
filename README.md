@@ -36,17 +36,16 @@ This project was built to practice Java desktop development, local database pers
 
 ## Project Structure
 
+```text
 java-finance-tracker
 │
 ├── .mvn
 ├── data
 │   ├── finance_tracker.db
 │   └── transactions_export.csv
-│
 ├── docs
 │   ├── dashboard-overview.png
 │   └── add-transaction.png
-│
 ├── src
 │   └── main
 │       ├── java
@@ -59,12 +58,12 @@ java-finance-tracker
 │       └── resources
 │           ├── fxml
 │           └── styles
-│
 ├── .gitignore
 ├── mvnw
 ├── mvnw.cmd
 ├── pom.xml
 └── README.md
+```
 
 ---
 
@@ -72,7 +71,8 @@ java-finance-tracker
 
 The application uses a local SQLite database to store transactions.
 
-Workflow:
+### Workflow
+
 1. The application starts and initializes the database
 2. Sample transactions are inserted if the database is empty
 3. Transactions are loaded into the table view
@@ -80,7 +80,7 @@ Workflow:
    - total income
    - total expenses
    - balance
-5. Charts update automatically
+5. Charts update automatically based on the current transaction list
 6. Users can add, filter, delete, and export transactions
 
 ---
@@ -89,24 +89,34 @@ Workflow:
 
 ### Option 1 — Using Maven
 
+```bash
 mvn javafx:run
+```
 
 ### Option 2 — Using Maven Wrapper
 
-Windows:
-mvnw.cmd javafx:run
+**Windows**
 
-Linux / macOS:
+```cmd
+mvnw.cmd javafx:run
+```
+
+**Linux / macOS**
+
+```bash
 ./mvnw javafx:run
+```
 
 ---
 
 ## Screenshots
 
 ### Dashboard Overview
+
 ![Dashboard Overview](docs/dashboard-overview.png)
 
 ### Add Transaction Flow
+
 ![Add Transaction](docs/add-transaction.png)
 
 ---
@@ -115,7 +125,9 @@ Linux / macOS:
 
 The CSV export is saved to:
 
+```text
 data/transactions_export.csv
+```
 
 ---
 
@@ -133,22 +145,22 @@ I wanted to build a Java desktop application that felt practical and polished ra
 
 ## Limitations
 
-- Date input uses a text field instead of a date picker
+- Date input currently uses a text field instead of a date picker
 - Filtering only supports transaction type
-- Editing transactions is not implemented
-- CSV export saves to a fixed path
+- Editing existing transactions is not implemented yet
+- CSV export always saves to a fixed local path
 
 ---
 
 ## Future Improvements
 
-- Edit transactions
-- Add category filtering
+- Edit existing transactions
+- Add category-based filtering
 - Add date range filtering
-- Monthly reports
-- Better validation
-- Unit tests
-- Package as executable
+- Add a monthly spending report
+- Improve input validation
+- Add unit tests for database logic
+- Package the application as an executable desktop release
 
 ---
 
