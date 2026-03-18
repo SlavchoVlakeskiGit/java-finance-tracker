@@ -113,11 +113,11 @@ mvnw.cmd javafx:run
 
 ### Dashboard Overview
 
-![Dashboard Overview](docs/dashboard-overview.png)
+![Dashboard Overview](docs/dashboard_overview.png)
 
 ### Add Transaction Flow
 
-![Add Transaction](docs/add-transaction.png)
+![Add Transaction](docs/add_transaction.png)
 
 ---
 
