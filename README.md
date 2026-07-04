@@ -2,8 +2,6 @@
 
 A desktop finance tracking application built with JavaFX, SQLite, and Maven.
 
-I built this because I wanted one Java project that felt a bit more complete than a typical console app.
-
 ## Features
 
 - add income and expense transactions
@@ -22,14 +20,6 @@ I built this because I wanted one Java project that felt a bit more complete tha
 - Maven
 - SQLite
 - JDBC
-
-## Why I built it
-
-A lot of smaller Java projects stop at console output. I wanted this one to feel like something a person could actually open and use.
-
-One detail I liked here was the local database setup, because it made the app feel more grounded than a UI that only works with in-memory sample data.
-
-Getting the database and UI to stay in sync cleanly took a bit more effort than I expected.
 
 ## How it works
 
@@ -69,10 +59,6 @@ The CSV export is saved to:
 ```text
 data/transactions_export.csv
 ```
-
-## Notes
-
-I kept the scope relatively small on purpose. The goal was not to build a full personal finance suite, just a clean desktop app with a solid core workflow.
 
 ## Possible next improvements
 
